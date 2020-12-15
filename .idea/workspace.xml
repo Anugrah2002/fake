@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e029866d-12e2-4832-892d-878e49793d0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/truck/migrations/0002_user_is_admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/truck/static/js/username_password.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truck/templates/add_vehicle.html" beforeDir="false" afterPath="$PROJECT_DIR$/truck/templates/add_vehicle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truck/templates/owner_registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/truck/templates/owner_registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truck/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/truck/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/truck/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/truck/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirement.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/truck/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/truck/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/truckManagement/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/truckManagement/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +113,7 @@
       <workItem from="1607756189550" duration="1278000" />
       <workItem from="1607758746243" duration="2660000" />
       <workItem from="1607938774567" duration="901000" />
+      <workItem from="1608055501091" duration="288000" />
     </task>
     <servers />
   </component>

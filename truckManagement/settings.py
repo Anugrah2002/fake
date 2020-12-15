@@ -76,11 +76,29 @@ WSGI_APPLICATION = 'truckManagement.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'truckmanage',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': 'mongodb://truckmanage:<password>@cluster0-shard-00-00.5anry.mongodb.net:27017,cluster0-shard-00-01.5anry.mongodb.net:27017,cluster0-shard-00-02.5anry.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-376kvs-shard-0&authSource=admin&retryWrites=true&w=majority',
+                'username': 'truckmanage',
+                'password': 'truckmanage',
+                'authSource': 'admin',
+                'authMechanism': 'SCRAM-SHA-1'
+            }
+            ,
+            'LOGGING': {
+                'version': 1,
+                'loggers': {
+                    'djongo': {
+                        'level': 'DEBUG',
+                        'propogate': False,
+                    }
+                },
+             },
+        }
     }
-}
 
 AUTH_USER_MODEL = 'truck.User'
 # Password validation
