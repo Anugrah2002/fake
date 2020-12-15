@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner registration</title>
+</head>
+{% load static %}
+{% load widget_tweaks %}
+<body>
+<script src="{% static 'js/username_password.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<div align="center">
+    <h1>Registrations</h1><br>
+    Already have Account <a href="/">Click here </a>
+</div>
+<form action="/owner_registration/" method="post" id="owner_registration_form">
+    {% csrf_token %}
+    <table align="center" cellpadding="10" cellspacing="10">
+        <tr>
+            <td>Name:</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>Mobile Number:</td>
+            <td>{{ form.mob_no }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{ form.username |attr:"oninput=username_validator(this.value)"}}<br>
+                <span id="username-text"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr hidden>
+            <td>Is Owner: {{ form.is_owner }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" onclick="owner_registration()" value="Submit">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

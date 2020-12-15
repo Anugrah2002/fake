@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+{% load widget_tweaks %}
+{% block title %}Add Vehicle{% endblock %}
+{% block body %}
+{% load static %}
+<script src="{% static 'js/username_password.js' %}"></script>
+<div align="center"><h1>Add Vehicle</h1></div>
+<form action="/add_vehicle/" method="post" id="add_vehicle_form">{% csrf_token %}
+    <table align="center" cellspacing="10" cellpadding="10">
+        <tr>
+            <td>Vehicle No. :</td>
+            <td>{{ form1.vehicle_no|attr:"onkeyup=this.value=this.value.toUpperCase()"}}</td>
+        </tr>
+        <tr>
+            <td>Driver Name:</td>
+            <td>{{ form2.name }}</td>
+        </tr>
+        <tr>
+            <td>Driver Mobile Number:</td>
+            <td>{{ form2.mob_no }}</td>
+        </tr>
+        <tr>
+            <td>Driving Licence:</td>
+            <td>{{ form2.driving_lisc }}</td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{ form2.username|attr:"oninput=username_validator(this.value)" }} <br>
+                <span id="username-text"></span></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ form2.password }}</td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr hidden>
+            <td>Is Driver:</td>
+            <td>{{ form2.is_driver }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="submit" onclick="add_vehicle()">
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

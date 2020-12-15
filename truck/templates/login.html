@@ -1,0 +1,47 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+</head>
+<body height="100%">
+<form method="post" action="/">{% csrf_token %}
+    <div align="center"><h1>Vehicle Management System</h1></div>
+    <div align="center" class="vertical-center">
+        <table frame="box" cellspacing="15" cellpadding="15">
+            <tr>
+                <td colspan="2">
+                    <h1 align="center">Login</h1>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li class="{{ message.tags }}" style="color:red;">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit">
+                    <a href="/owner_registration/"><br>Signup as a owner</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>

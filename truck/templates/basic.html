@@ -1,0 +1,67 @@
+<html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+</head>
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>
+<body>
+<script src="{% static 'js/basic.js/' %}"></script>
+<script src="{% static 'js/jquery.min.js/' %}"></script>
+<div align="center" style="margin-right:15px;float:center;">Hi {{ request.user.username }} </div>
+<div align="right" style="margin-right:15px;float:right;">
+
+    <button onclick="change_password()">Change Password</button>
+    <a href="/logout/">
+        <button>Logout</button>
+    </a>
+</div>
+{% block body %}
+{% endblock %}
+<!----------------------------------------modals--------------------------------------------------------->
+<div id="myModal" class="change-password-modal">
+    <div class="modal-content">
+        <div style="background-color:#ffffff;" align="center">Change Password</div>
+        <div><span id="change_password_text"></span></div>
+        <form> {% csrf_token %}
+            <table width="100%;" cellpadding="10">
+                <tr>
+                    <td>Old Password</td>
+                    <td>
+                        <input type="password" placeholder="Old Password" id="old_password" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>New Password</td>
+                    <td>
+                        <input type="password" placeholder="New Password" id="new_password" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Confirm New Password</td>
+                    <td>
+                        <input type="password" placeholder="Confirm New Password" autocomplete="off">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="close">Close</button>
+                    </td>
+                    <td>
+                        <input type="button" value="Submit" onclick="change_password_ajax()">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

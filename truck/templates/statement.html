@@ -1,0 +1,74 @@
+{% extends 'basic.html' %}
+{% load static%}
+{% block title %}Statement{% endblock %}
+{% block body %}
+<script src="{% static 'js/statement.js' %}"></script>
+<div align="center" style="margin-top:10px;">
+    <form action="/view_statement/{{id}}" method="post">{% csrf_token %}
+        From Date : <input type="date" name="from_date">
+        To Date : <input type="date" name="to_date">
+        <input type="submit" value="Go">
+    </form>
+</div>
+<h1 align="center">Statement</h1>
+{% for d in dates %}
+<table width="50%" style="collapse-border:collapse;" align="center" frame="box">
+    <tr class="statement-dates">
+        <td colspan="2">Date : {{d}}</td>
+    </tr>
+    <tr>
+        <td width="50%" >
+        <td id="pay-opening-{{forloop.counter}}"></td>
+        <td id="rec-opening-{{forloop.counter}}"></td>
+    </tr>
+    <tr>
+        <td width="50%">
+            <table width="100%" cellspacing="10">
+                {% for p in pay_data %}
+                {% if p.date == d %}
+                <tr>
+                    <td width="30%" class="pay-amount-{{forloop.parentloop.counter}}">{{ p.amount|floatformat:2}}</td>
+                    <td>{{ p.reason }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </td>
+        <td>
+            <table width="100%" cellspacing="10" >
+                {% for r in recieve_data %}
+                {% if r.date == d %}
+                <tr>
+                    <td width="30%" class="rec-amount-{{forloop.parentloop.counter}}">{{ r.amount|floatformat:2 }}</td>
+                    <td>{{ r.reason }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <table width="100%">
+                <tr>
+                    <td style="border-top:1px solid;padding:3px 10px 0px 10px;" width="50%" id="pay-total-{{forloop.counter}}"></td>
+                    <td style="border-top:1px solid;padding:3px 10px 0px 10px;" width="50%" id="rev-total-{{forloop.counter}}"></td>
+                </tr>
+                <tr>
+                    <td style="padding:3px 10px 0px 10px;border-bottom:1px solid;" id="pay-side-{{forloop.counter}}"></td>
+                    <td style="padding:3px 10px 0px 10px;border-bottom:1px solid;" id="rec-side-{{forloop.counter}}"></td>
+                </tr>
+                {% for c in comments %}
+                {% if c.date == d %}
+                <tr>
+                    <td colspan="2">{{c.text}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>
+<div style="height:40px;"> </div>
+{% endfor %}
+{% endblock %}

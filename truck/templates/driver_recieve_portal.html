@@ -1,0 +1,21 @@
+{% extends 'basic.html' %}
+{% block body %}
+<h1 align="center"><u>Recieve Portal</u></h1>
+<form method="post" action="/driver_recieve_portal/">{% csrf_token %}
+<table>
+    <tr>
+        <td>Date:</td>
+        <td>{{ form.date }}</td>
+    </tr>
+    <tr>
+        <td>Amount:</td>
+        <td>{{ form.amount }}</td>
+    </tr>
+    <tr>
+        <td>Reason:</td>
+        <td>{{ form.reason }}</td>
+    </tr>
+</table>
+    <input type="submit">
+    </form>
+{% endblock %}

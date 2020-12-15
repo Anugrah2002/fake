@@ -1,0 +1,23 @@
+{% extends 'basic.html' %}
+{% block body %}
+<h1 align="center"><u>Pay Portal</u></h1>
+<form method="post" action="/driver_pay_portal/">{% csrf_token %}
+    <table align="center" width="70%" cellspacing="10" cellpadding="10">
+        <tr>
+            <td width="20%">Date:</td>
+            <td>{{ form.date }}</td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td>{{ form.amount }}</td>
+        </tr>
+        <tr>
+            <td>Reason:</td>
+            <td>{{ form.reason }}</td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input type="submit"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

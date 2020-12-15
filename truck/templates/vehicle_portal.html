@@ -1,0 +1,19 @@
+{% extends 'basic.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div align="center">
+    <h1>Vehicle Portal</h1>
+    <h2> Vehicle Number {{vehicle.vehicle_no}}</h2>
+</div>
+
+<table align="center">
+    <tr>
+        <td>
+            <a href="/view_statement/{{id}}">
+                <button>Statement</button>
+            </a>
+        </td>
+    </tr>
+</table>
+{% endblock %}

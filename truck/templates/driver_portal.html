@@ -1,0 +1,28 @@
+{% extends 'basic.html' %}
+{% block title%}Driver Portal{% endblock %}
+{% block body %}
+<h1 align="center"><u>Driver Portal</u></h1>
+<div>
+    <table align="center" width="40%" cellspacing="20">
+        <tr>
+            <td>
+                <a href="/driver_pay_portal/">
+                    <button>Add Pay statement</button>
+                </a>
+            </td>
+            <td>
+                <a href="/driver_recieve_portal/">
+                    <button>Add Recieve statement</button>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <a href="/comment/">
+                    <button>Comment</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
